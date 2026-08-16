@@ -1,0 +1,884 @@
+/* Staff Dashboard and Navigation Styles */
+.staff-dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+.staff-dashboard-main{
+  padding: 5vw ;
+}
+
+/* Top Navigation Bar Styles */
+.staff-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #18191b;
+  padding: 0 24px;
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.zemen-logo {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #ff0000aa;
+}
+
+.zemen-red {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-menu-item:hover,
+.nav-menu-item.active {
+  background: #ff0000;
+  color: #fff;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 6px 16px 6px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  cursor: pointer;
+}
+
+.user-icon {
+  font-size: 1.3rem;
+  margin-right: 4px;
+}
+
+.user-info {
+  font-size: 0.95rem;
+  color: #222;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.user-type {
+  font-size: 0.85em;
+  color: #ff0000;
+  font-weight: 600;
+}
+
+.user-dropdown-card {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(194,0,34,0.13), 0 1.5px 8px rgba(0,0,0,0.04);
+  padding: 22px 26px 18px 26px;
+  min-width: 260px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: popIn 0.18s;
+}
+
+.user-detail-row {
+  font-size: 1.01rem;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.change-password-btn {
+  background: #fbe9ed;
+  color: #ff0000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.change-password-btn:hover {
+  background: #ff0000;
+  color: #fff;
+}
+
+.change-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.change-password-form .form-row label {
+  color: #ff0000;
+  font-size: 0.97rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.change-password-form .form-row input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.97rem;
+  transition: border 0.2s;
+}
+
+.change-password-form .form-row input:focus {
+  border: 1.5px solid #ff0000;
+  outline: none;
+}
+
+.change-password-form .form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.change-password-form .form-actions button {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.change-password-form .form-actions button[type="button"] {
+  background: #888;
+}
+
+.change-password-form .form-actions button:hover {
+  background: #ff0000;
+}
+
+.change-password-form .form-actions button[type="button"]:hover {
+  background: #ff0000;
+}
+
+.logout-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.logout-icon:hover {
+  color: #ff0000;
+}
+
+/* Main Content Area */
+.manager-dashboard-main {
+  flex: 1;
+  padding: 24px;
+  background: #f4f4f4;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.dashboard-title {
+  color: #ff0000;
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 2px 12px #00000022;
+}
+
+.dashboard-summary-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.dashboard-summary-card {
+  background: #fff;
+  border: 1.5px solid #f2d6dc;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(194,0,34,0.06);
+  padding: 16px 18px 10px 18px;
+  min-width: 140px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, border 0.2s;
+  text-decoration: none;
+}
+
+.dashboard-summary-card:hover {
+  border: 1.5px solid #ff0000;
+  box-shadow: 0 4px 16px rgba(194,0,34,0.13);
+}
+
+.summary-value {
+  color: #ff0000;
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.summary-label {
+  color: #222;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+.dashboard-notifications {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(194,0,34,0.06);
+  padding: 14px 18px 10px 18px;
+  margin-top: 10px;
+  max-width: 420px;
+}
+
+.dashboard-notifications h2 {
+  color: #ff0000;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.97rem;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.notification-icon {
+  font-size: 1.1rem;
+}
+
+.notification-text {
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .nav-left {
+    gap: 16px;
+  }
+  
+  .zemen-logo {
+    font-size: 1.2rem;
+  }
+  
+  .manager-dashboard-main {
+    padding: 16px;
+  }
+  
+  .dashboard-summary-row {
+    gap: 8px;
+  }
+} 
+/* Request Status Filters for Staff */
+.staff-request-status-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.staff-request-status-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.staff-request-status-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.staff-request-status-btn.active {
+  background-color: #333;
+  color: white;
+}
+
+.staff-request-status-btn.pending {
+  border-left: 4px solid #faad14;
+}
+
+.staff-request-status-btn.pending.active {
+  background-color: #faad14;
+  color: white;
+}
+
+.staff-request-status-btn.approved {
+  border-left: 4px solid #52c41a;
+}
+
+.staff-request-status-btn.approved.active {
+  background-color: #52c41a;
+  color: white;
+}
+
+.staff-request-status-btn.rejected {
+  border-left: 4px solid #f5222d;
+}
+
+.staff-request-status-btn.rejected.active {
+  background-color: #f5222d;
+  color: white;
+}
+
+.staff-request-status-btn.assigned {
+  border-left: 4px solid #1890ff;
+}
+
+.staff-request-status-btn.assigned.active {
+  background-color: #1890ff;
+  color: white;
+}
+
+.staff-request-status-btn.in-progress {
+  border-left: 4px solid #1890ff;
+}
+
+.staff-request-status-btn.in-progress.active {
+  background-color: #1890ff;
+  color: white;
+}
+
+.staff-request-status-btn.completed {
+  border-left: 4px solid #52c41a;
+}
+
+.staff-request-status-btn.completed.active {
+  background-color: #52c41a;
+  color: white;
+}
+
+/* Vehicle Request Form Grid Layout */
+.request-grid-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Spacing between rows */
+}
+
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 18px; /* Spacing between columns in a row */
+}
+
+.request-grid-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Space between label and input within a form-row */
+}
+
+.request-grid-form .form-row label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+  margin-bottom: 0; /* Reset default browser margin if any */
+}
+
+.request-grid-form .form-row input,
+.request-grid-form .form-row select,
+.request-grid-form .form-row textarea {
+  padding: 10px 12px; /* Standardized padding */
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.request-grid-form .form-row input:focus,
+.request-grid-form .form-row select:focus,
+.request-grid-form .form-row textarea:focus {
+  border-color: #ff0000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(194, 0, 34, 0.2);
+}
+
+.request-grid-form .form-row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.request-grid-form .select-travelers-btn {
+  padding: 10px 12px; /* Match input/select padding */
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  color: #495057;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-align: left; /* Align text to the left like an input */
+  width: 100%; /* Make it span full width of its container */ 
+  box-sizing: border-box;
+  font-size: 0.95rem; /* Match font size */
+  line-height: 1.5; /* Match line height for better vertical alignment */
+}
+
+.request-grid-form .select-travelers-btn:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.request-grid-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px; /* Add some space above the action buttons */
+}
+
+.request-grid-form .form-actions button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  border: 1px solid transparent;
+}
+
+.request-grid-form .form-actions button[type="submit"] {
+  background-color: #ff0000;
+  color: white;
+  border-color: #ff0000;
+}
+
+.request-grid-form .form-actions button[type="submit"]:hover {
+  background-color: #a0001a;
+  border-color: #a0001a;
+}
+
+.request-grid-form .form-actions button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.request-grid-form .form-actions button[type="button"]:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Status badges for request table */
+.staff-request-status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.staff-request-status-badge.status-0 {
+  background-color: #fff7e6;
+  color: #faad14;
+  border: 1px solid #faad14;
+}
+
+.staff-request-status-badge.status-1 {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #52c41a;
+}
+
+.staff-request-status-badge.status-2 {
+  background-color: #fff1f0;
+  color: #f5222d;
+  border: 1px solid #f5222d;
+}
+
+.staff-request-status-badge.status-3 {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+}
+.staff-request-status-badge.status-4 {
+  background-color: #e6f7ff;
+  color: green;
+  border: 1px solid #1890ff;
+}
+
+.staff-request-status-badge.status-5 {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #1890ff;
+}
+
+.staff-request-status-badge.status-6 {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #52c41a;
+}
+
+/* Additional action button style for revert */
+.action-btn.revert {
+  background: #fadb14;
+  color: #333;
+}
+
+.action-btn.revert:hover {
+  background: #d4b106;
+  color: #000;
+}
+
+.action-btn.approve {
+  background: #52c41a;
+  color: #fff;
+}
+
+.action-btn.approve:hover {
+  background: #389e0d;
+  color: #fff;
+}
+/* Add this to your Staff.css file */
+.dashboard-summary-card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-summary-card.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(194,0,34,0.15);
+}
+
+/* Department head badge */
+.department-head-badge {
+  display: inline-block;
+  background-color: #ff0000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+/* Traveler Picker Styles */
+.large-modal {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.traveler-filters {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 15px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.search-container,
+.department-filter-container {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-container label,
+.department-filter-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.traveler-search-input,
+.department-filter-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.clear-filters-btn {
+  padding: 8px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-filters-btn:hover {
+  background-color: #5a6268;
+}
+
+.results-summary {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.travelers-table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.travelers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.travelers-table th,
+.travelers-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.travelers-table th {
+  background-color: #ff0000;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.selected-row {
+  background-color: #e3f2fd;
+}
+
+.selected-travelers {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.selected-travelers ul {
+  margin: 5px 0 0 0;
+  padding-left: 20px;
+}
+
+.selected-travelers li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.remove-traveler-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.remove-traveler-btn:hover {
+  background-color: #c82333;
+}
+
+.done-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.done-btn:hover {
+  background-color: #218838;
+}
+
+.clear-selection-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.clear-selection-btn:hover {
+  background-color: #c82333;
+}
+
+.no-filter-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* Rejection Modal Styles */
+.request-details {
+  background-color: #f8f9fa;
+  padding: 12px;
+  border-radius: 4px;
+  margin: 8px 0;
+  border: 1px solid #dee2e6;
+}
+
+.request-details p {
+  margin: 4px 0;
+}
+
+.form-help-text {
+  display: block;
+  margin-top: 4px;
+  color: #6c757d;
+  font-size: 0.85em;
+}
+
+.error-message {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #fed7d7;
+}
+
+/* Action Button States */
+.action-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.director-approval-message {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-left: 8px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+/* Rejection Form Styles */
+.rejection-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 100px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rejection-form textarea:focus {
+  border-color: #ff0000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(194, 0, 34, 0.2);
+}
+
+.rejection-form .form-actions button[type="submit"] {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.rejection-form .form-actions button[type="submit"]:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.rejection-form .form-actions button[type="submit"]:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.rejection-form .form-actions button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.rejection-form .form-actions button[type="button"]:hover {
+  background-color: #5a6268;
+}
