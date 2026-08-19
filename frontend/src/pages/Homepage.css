@@ -1,0 +1,99 @@
+/* src/pages/Homepage.css */
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('../assets/zemen_logo.jpg') center center no-repeat;
+    background-size: cover; /* Ensures image fills the section */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .navbar {
+    background-color: #Ff0000 !important; /* Red color override */
+  }
+  
+.homepage-about-section, .homepage-contact-section {
+  width: 100%;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  padding: 70px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.homepage-about-container, .homepage-contact-container {
+  background: rgba(255,255,255,0.98);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(194,0,34,0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+  max-width: 850px;
+  width: 92%;
+  padding: 48px 36px 40px 36px;
+  margin-bottom: 40px;
+  transition: box-shadow 0.3s, transform 0.3s;
+  border: 1.5px solid #f2d6dc;
+}
+
+.homepage-about-container:hover, .homepage-contact-container:hover {
+  box-shadow: 0 16px 48px rgba(194,0,34,0.18), 0 2px 12px rgba(0,0,0,0.08);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.homepage-about-container h2, .homepage-contact-container h2 {
+  color: #c20022;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 22px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #f2d6dc;
+}
+
+.homepage-about-container h4 {
+  color: #e0002a;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.homepage-about-container p, .homepage-contact-container p {
+  color: #3a3a3a;
+  font-size: 1.13rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.homepage-contact-container p strong {
+  color: #c20022;
+}
+
+.homepage-contact-container {
+  border-left: 6px solid #c20022;
+  border-right: 6px solid #c20022;
+  background: linear-gradient(120deg, #fff 60%, #ffe6eb 100%);
+}
+
+.homepage-about-container {
+  border-left: 6px solid #e0002a;
+  border-right: 6px solid #e0002a;
+  background: linear-gradient(120deg, #fff 60%, #fbe9ed 100%);
+}
+
+@media (max-width: 600px) {
+  .homepage-about-container, .homepage-contact-container {
+    padding: 20px 8px;
+    border-left: 3px solid #c20022;
+    border-right: 3px solid #c20022;
+  }
+  .homepage-about-container h2, .homepage-contact-container h2 {
+    font-size: 1.5rem;
+  }
+}
+  

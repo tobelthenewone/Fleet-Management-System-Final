@@ -1,0 +1,50 @@
+.aboutus-section {
+  width: 100%;
+  background: #f8f9fa;
+  padding: 60px 0 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutus-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  max-width: 800px;
+  width: 90%;
+  padding: 40px 32px;
+}
+
+.aboutus-container h2 {
+  color: #c20022;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.aboutus-container h3 {
+  color: #b30000;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.aboutus-container p, .aboutus-container ul {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.aboutus-container ul {
+  padding-left: 24px;
+}
+
+@media (max-width: 600px) {
+  .aboutus-container {
+    padding: 20px 8px;
+  }
+  .aboutus-container h2 {
+    font-size: 2rem;
+  }
+} 
