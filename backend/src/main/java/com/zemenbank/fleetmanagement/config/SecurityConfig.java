@@ -35,7 +35,7 @@ public class SecurityConfig {
             //         .ignoringRequestMatchers(new AntPathRequestMatcher("/api/v1/auth/**")))            
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(requests -> requests
-                    .requestMatchers("/api/v1/register").hasAnyRole(Role.ADMIN.name(), Role.LOGISTICS_OFFICER.name(), Role.LOGISTICS_HEAD.name())
+                    .requestMatchers("/api/v1/register").permitAll()
                     .requestMatchers("/api/v1/admin/**").hasAnyRole(Role.ADMIN.name(), Role.LOGISTICS_OFFICER.name(), Role.LOGISTICS_HEAD.name())
                     .requestMatchers("/api/v1/auth/**").permitAll()
                     .requestMatchers("/api/v1/logistics/**").hasAnyRole(Role.ADMIN.name(), Role.LOGISTICS_OFFICER.name(), Role.LOGISTICS_HEAD.name(), Role.JOURNEY_CONTROLLER.name())
