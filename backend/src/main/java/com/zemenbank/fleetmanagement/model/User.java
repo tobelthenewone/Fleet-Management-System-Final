@@ -48,7 +48,7 @@ public class User implements UserDetails{
     private Role role;
     
     @ManyToOne()
-    @JoinColumn(name = "department_id", nullable = false)
+    @JoinColumn(name = "department_id", nullable = true)
     @JsonBackReference
     private Department department;
 
