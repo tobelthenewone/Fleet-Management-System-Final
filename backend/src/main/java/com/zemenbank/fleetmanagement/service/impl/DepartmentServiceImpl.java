@@ -44,10 +44,18 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found"));
         existingDepartment.setName(departmentDTO.getName());
         existingDepartment.setDescription(departmentDTO.getDescription());
-        existingDepartment.setManager(userRepository.findById(departmentDTO.getManagerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Manager not found")));
-        existingDepartment.setDirector(userRepository.findById(departmentDTO.getDirectorId())
-                .orElseThrow(() -> new ResourceNotFoundException("Director not found")));
+        existingDepartment.setLocation(departmentDTO.getLocation());
+        // Only touch manager/director if a value was actually supplied, so callers
+        // can update a department without needing to already know a manager/director,
+        // and can still assign them later once the relevant users exist.
+        if (departmentDTO.getManagerId() != null) {
+            existingDepartment.setManager(userRepository.findById(departmentDTO.getManagerId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Manager not found")));
+        }
+        if (departmentDTO.getDirectorId() != null) {
+            existingDepartment.setDirector(userRepository.findById(departmentDTO.getDirectorId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Director not found")));
+        }
         Department updatedDepartment = departmentRepository.save(existingDepartment);
         return ResponseEntity.ok(mapToDTO(updatedDepartment));
     }
@@ -104,7 +112,9 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .name(department.getName())
                 .description(department.getDescription())
                 .manager(manager != null ? mapToUserBriefDTO(manager) : null)
+                .managerId(manager != null ? manager.getId() : null)
                 .director(director != null ? mapToUserBriefDTO(director) : null)
+                .directorId(director != null ? director.getId() : null)
                 .location(department.getLocation())
                 .build();
     }
@@ -123,14 +133,18 @@ public class DepartmentServiceImpl implements DepartmentService {
         if (departmentDTO == null)
             return null;
 
-
-
-     
-
-        User departmentManager = userRepository.findById(departmentDTO.getManagerId())
-                .orElseThrow(() -> new ResourceNotFoundException("Department Manager not found with id: " + departmentDTO.getManagerId()));
-        User departmentDirector = userRepository.findById(departmentDTO.getDirectorId())
-                .orElseThrow(() -> new ResourceNotFoundException("Department Director not found with id: " + departmentDTO.getDirectorId()));
+        // Manager and director are optional at creation time: a brand new system
+        // has no users yet, and users need a department to belong to, so we can't
+        // force a manager/director to already exist here. They can be assigned
+        // later via updateDepartment once users exist.
+        User departmentManager = departmentDTO.getManagerId() != null
+                ? userRepository.findById(departmentDTO.getManagerId())
+                        .orElseThrow(() -> new ResourceNotFoundException("Department Manager not found with id: " + departmentDTO.getManagerId()))
+                : null;
+        User departmentDirector = departmentDTO.getDirectorId() != null
+                ? userRepository.findById(departmentDTO.getDirectorId())
+                        .orElseThrow(() -> new ResourceNotFoundException("Department Director not found with id: " + departmentDTO.getDirectorId()))
+                : null;
 
         // if (departmentManager.getRole() != Role.DEPARTMENT_HEAD) {
         //     throw new IllegalArgumentException("The given user doesn't have the required role: DEPARTMENT_MANAGER");
