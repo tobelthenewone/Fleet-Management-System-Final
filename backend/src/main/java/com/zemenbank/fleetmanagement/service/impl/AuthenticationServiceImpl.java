@@ -12,6 +12,7 @@ import com.zemenbank.fleetmanagement.dto.UserLoginDTO;
 import com.zemenbank.fleetmanagement.dto.UserRegistrationDTO;
 import com.zemenbank.fleetmanagement.enums.Role;
 import com.zemenbank.fleetmanagement.exception.InvalidCredentialsException;
+import com.zemenbank.fleetmanagement.exception.ResourceNotFoundException;
 import com.zemenbank.fleetmanagement.exception.UserAlreadyExistsException;
 import com.zemenbank.fleetmanagement.model.User;
 import com.zemenbank.fleetmanagement.repository.DepartmentRepository;
@@ -40,10 +41,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             throw new UserAlreadyExistsException("User already exists in local DB.");
         }
-        var department = departmentRepository.findById(request.getDepartmentId())
-        .orElseThrow(() -> new UserAlreadyExistsException("Department not found"));
-
-
+        // Department is optional at registration time: a brand new system has no
+        // departments yet, and departments need at least one user to act as
+        // manager/director, so we can't force a department to already exist here.
+        var department = request.getDepartmentId() != null
+                ? departmentRepository.findById(request.getDepartmentId())
+                        .orElseThrow(() -> new ResourceNotFoundException("Department not found"))
+                : null;
 
         var user = User.builder()
                     .name(request.getName())
