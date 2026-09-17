@@ -1,16 +1,16 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // baseURL: 'http://localhost:8080/api/v1',
-  baseURL: 'https://aps2.zemenbank.com/fmsapi',
+  baseURL: 'http://localhost:8080/api/v1',
+  // baseURL: 'https://aps2.zemenbank.com/fmsapi',
   withCredentials: true,
   xsrfCookieName: 'XSRF-TOKEN',
   xsrfHeaderName: 'X-XSRF-TOKEN',
 });
 
 const plainApi = axios.create({
-  // baseURL: 'http://localhost:8080/api/v1',
-  baseURL: 'https://aps2.zemenbank.com/fmsapi',
+  baseURL: 'http://localhost:8080/api/v1',
+  // baseURL: 'https://aps2.zemenbank.com/fmsapi',
   withCredentials: true,
 });
 
