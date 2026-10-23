@@ -79,8 +79,20 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-container">
-        
-        
+        {/* <img
+          src={require("../assets/z-07.pn")}
+          alt="Zemen Bank Logo"
+          width=""
+          className="login-title-image"
+
+        />
+        <img
+          src={require("../assets/z-02.png")}
+          alt="Zemen Bank Logo"
+          width=""
+          className="footer-logo"
+
+        /> */}
         {/* <div className="login-sidebar">
           <img
             src={require("../assets/z-06.png")}
