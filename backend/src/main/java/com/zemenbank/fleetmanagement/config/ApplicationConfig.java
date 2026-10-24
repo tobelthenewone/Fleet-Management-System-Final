@@ -49,12 +49,12 @@ public class ApplicationConfig {
     //     return authProvider;
     // }
     // LDAP
-    @Bean
-    ActiveDirectoryLdapAuthenticationProvider authenticationProvider() {
-        var ldabAuth =  new ActiveDirectoryLdapAuthenticationProvider("zemenbank.local", "ldap://mbdcp02.zemenbank.local:389", "");
-        ldabAuth.setSearchFilter("(&(objectClass=user)(sAMAccountName={1}))");
-        return ldabAuth;
-    }
+    // @Bean
+    // ActiveDirectoryLdapAuthenticationProvider authenticationProvider() {
+    //     var ldabAuth =  new ActiveDirectoryLdapAuthenticationProvider("example.local", "ldap://mbdcp02.example.local:portnumber", "");
+    //     ldabAuth.setSearchFilter("(&(objectClass=user)(sAMAccountName={1}))");
+    //     return ldabAuth;
+    // }
 
 
     /**
