@@ -17,7 +17,7 @@ const NavigationBar = ({ user, onLogout }) => {
   return (
     <nav className="navigation-bar">
       <div className="nav-left">
-        <img src="/zemen-logo.png" alt="Zemen Bank" className="nav-logo" />
+        {/* <img src="/zemen-logo.png" alt="Zemen Bank" className="nav-logo" /> */}
         <span className="bank-name">Zemen Bank</span>
       </div>
       <div className="nav-right">
