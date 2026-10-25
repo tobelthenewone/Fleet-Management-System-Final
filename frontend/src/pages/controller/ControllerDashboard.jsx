@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./controller.css";
 import api from "../../api/axios";
-import ZemenLogo from "../../assets/z-11.png"; // Import the Zemen logo
+import Logo from "../../assets/placeholder-symbol.jpg"; // Import the logo
 import PreApprovedTripForm from "../../components/preApprovedTrip";
 import Role from "../../enums/role";
 
@@ -538,8 +538,8 @@ const ControllerDashboard = () => {
           style={{ display: "flex", alignItems: "center" }}
         >
           <img
-            src={ZemenLogo}
-            alt="Zemen Bank Logo"
+            src={Logo}
+            alt="Logo"
             className="dashboard-logo"
             style={{
               // width: "72px",

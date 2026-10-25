@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import "./Staff.css";
-import zemenLogo from "../../assets/z-11.png"; // Import the Zemen Bank logo
+import Logo from "../../assets/placeholder-symbol.jpg"; // Import the Zemen Bank logo
 import api from "../../api/axios";
 
 const navItems = [
@@ -53,8 +53,8 @@ const StaffNavigationBar = () => {
           }}
         >
           <img
-            src={zemenLogo}
-            alt="Zemen Logo"
+            src={Logo}
+            alt="Logo"
             style={{
               width: "140px",
               verticalAlign: "middle",

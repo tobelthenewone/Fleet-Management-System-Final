@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./admin.css";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/placeholder-symbol.jpg";
 import api from "../../api/axios";
 
 const sidebarItems = [
