@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Manager.css";
-import logo from "../../assets/z-09.png";
+import logo from "../../assets/placeholder-symbol.jpg";
 import api from "../../api/axios";
 
 const sidebarItems = [
@@ -59,11 +59,11 @@ const Sidebar = () => {
       <div className="sidebar-logo-container">
         <img
           src={logo}
-          alt="Zemen Bank"
+          alt="Logo"
           className="sidebar-logo"
           onError={(e) => {
             console.error("Error loading logo:", e);
-            e.target.src = "/default-logo.png"; // Fallback image
+            e.target.src = "placeholder-symbol.jpg"; // Fallback image
           }}
         />
       </div>
