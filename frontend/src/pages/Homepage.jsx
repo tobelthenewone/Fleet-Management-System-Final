@@ -47,7 +47,7 @@ function Homepage() {
       <header className="hero-section text-white text-center d-flex align-items-center justify-content-center">
         <div>
           <h1 className="display-4 fw-bold">Fleet Management System</h1>
-          <p className="lead">Powering Zemen Bank's transport efficiency</p>
+          <p className="lead">Powering transport efficiency</p>
           <Link to="/fms/" className="btn btn-danger btn-lg mt-3">
             Get Started
           </Link>
