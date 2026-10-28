@@ -8,7 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.ldap.authentication.ad.ActiveDirectoryLdapAuthenticationProvider;
-
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import com.zemenbank.fleetmanagement.exception.ResourceNotFoundException;
 import com.zemenbank.fleetmanagement.repository.UserRepository;
 
@@ -41,13 +42,13 @@ public class ApplicationConfig {
      * Provides an AuthenticationProvider using DAO authentication and BCrypt password encoding.
      * @return AuthenticationProvider bean
      */
-    // @Bean
-    // public AuthenticationProvider authenticationProvider(){
-    //     DaoAuthenticationProvider authProvider=new DaoAuthenticationProvider();
-    //     authProvider.setUserDetailsService(userDetailsService());
-    //     authProvider.setPasswordEncoder(passwordEncoder());
-    //     return authProvider;
-    // }
+    @Bean
+    public AuthenticationProvider authenticationProvider(){
+        DaoAuthenticationProvider authProvider=new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
     // LDAP
     // @Bean
     // ActiveDirectoryLdapAuthenticationProvider authenticationProvider() {
